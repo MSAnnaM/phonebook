@@ -31,8 +31,7 @@ export const StyledForm = styled.form`
       transition: border-color 0.3s ease-in-out;
 
       &:focus {
-      
-  color: #ffffff;
+  border-color: #ffffff;
       }
     }
 

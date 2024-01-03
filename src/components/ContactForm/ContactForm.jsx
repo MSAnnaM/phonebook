@@ -40,7 +40,6 @@ export const ContactForm = () => {
       name,
       number,
     };
-    console.log(newContact);
     dispatch(addNewContact(newContact));
     setName('');
     setNumber('');
