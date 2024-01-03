@@ -18,8 +18,8 @@ export const Item = styled.li`
 `;
 
 export const ItemName = styled.span`
-font-weight: bold;
-`
+  font-weight: bold;
+`;
 
 export const DeleteBtn = styled.button`
   padding: 8px;
@@ -32,6 +32,6 @@ export const DeleteBtn = styled.button`
 
   &:hover {
     background-color: #ff7f50;
-  color: #ffffff;
+    color: #ffffff;
   }
 `;

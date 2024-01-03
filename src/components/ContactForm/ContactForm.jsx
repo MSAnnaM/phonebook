@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
 import { Form, Input, Button } from './ContactForm.styled';
 import Notiflix from 'notiflix';
-import { selectContacts } from '../../redux/selectors';
-import { addNewContact } from '../../redux/api';
+import { selectContacts } from '../../redux/contacts/selectors';
+import { addNewContact } from '../../redux/contacts/contactApi';
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -36,17 +35,16 @@ export const ContactForm = () => {
       Notiflix.Notify.warning(`${name} is already in the contacts.`);
       return;
     }
-   
+
     const newContact = {
-        id: nanoid(),
-        name,
-        number,
-      }
-    dispatch(addNewContact(newContact))
+      name,
+      number,
+    };
+    console.log(newContact);
+    dispatch(addNewContact(newContact));
     setName('');
     setNumber('');
   };
-
 
   return (
     <Form onSubmit={handleSubmit}>
