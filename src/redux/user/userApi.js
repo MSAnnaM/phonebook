@@ -12,25 +12,25 @@ const offToken = () => {
 };
 
 const registration = async user => {
-  const { data } = await api.post(`/users/signup`, user);
+  const { data } = await api.post(`/api/users/register`, user);
   setToken(data.token);
   return data;
 };
 
 const login = async user => {
-  const { data } = await api.post(`/users/login`, user);
+  const { data } = await api.post(`/api/users/login`, user);
   setToken(data.token);
   return data;
 };
 
 const logout = async user => {
-  const { data } = await api.post(`/users/logout`, user);
+  const { data } = await api.post(`/api/users/logout`, user);
   offToken();
   return data;
 };
 
 const refresh = async () => {
-  const { data } = await api.get(`/users/current`);
+  const { data } = await api.get(`/api/users/current`);
   return data;
 };
 

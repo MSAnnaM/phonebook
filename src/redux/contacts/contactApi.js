@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
 export const api = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com',
+  baseURL: 'http://localhost:3005',
 });
 
 const makeApiRequest = async (config, thunkAPI) => {
@@ -25,7 +25,7 @@ const makeApiRequest = async (config, thunkAPI) => {
 export const fetchAllContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
-    return makeApiRequest({ method: 'get', url: '/contacts' }, thunkAPI);
+    return makeApiRequest({ method: 'get', url: '/api/contacts' }, thunkAPI);
   }
 );
 
@@ -33,7 +33,7 @@ export const addNewContact = createAsyncThunk(
   'contacts/addContact',
   async (newContact, thunkAPI) => {
     return makeApiRequest(
-      { method: 'post', url: '/contacts', data: newContact },
+      { method: 'post', url: '/api/contacts', data: newContact },
       thunkAPI
     );
   }
@@ -43,7 +43,7 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (id, thunkAPI) => {
     return makeApiRequest(
-      { method: 'delete', url: `/contacts/${id}` },
+      { method: 'delete', url: `/api/contacts/${id}` },
       thunkAPI
     );
   }

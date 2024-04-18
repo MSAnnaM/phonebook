@@ -23,16 +23,17 @@ export const ContactList = () => {
   );
 
   const handleDeleteContact = contactId => {
+    console.log(contactId);
     dispatch(deleteContact(contactId));
   };
 
   return (
     <List>
       {filteredContacts.map(contact => (
-        <Item key={contact.id}>
+        <Item key={contact._id}>
           <ItemName>{contact.name}</ItemName>
           <span>{contact.number}</span>
-          <DeleteBtn onClick={() => handleDeleteContact(contact.id)}>
+          <DeleteBtn onClick={() => handleDeleteContact(contact._id)}>
             Delete
           </DeleteBtn>
         </Item>
