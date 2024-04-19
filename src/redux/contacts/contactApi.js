@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3005',
+  baseURL: 'https://phonebook-api-4ks1.onrender.com',
 });
 
 const makeApiRequest = async (config, thunkAPI) => {
