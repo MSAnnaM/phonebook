@@ -21,8 +21,8 @@ const fulfilledAddContact = (state, { payload }) => {
   state.items = [...state.items, payload];
 };
 const fulfilledDeleteContact = (state, { payload }) => {
-  const deleteContactId = payload.id;
-  state.items = state.items.filter(contact => contact.id !== deleteContactId);
+  const deleteContactId = payload._id;
+  state.items = state.items.filter(contact => contact._id !== deleteContactId);
   state.isLoading = false;
   state.error = null;
 };

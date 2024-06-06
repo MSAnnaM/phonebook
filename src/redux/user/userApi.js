@@ -41,8 +41,9 @@ export const registerUser = createAsyncThunk(
       const response = await registration(user);
       return response;
     } catch (error) {
-      Notiflix.Notify.warning('Oooops, something goes wrong');
-      thunkAPI.rejectWithValue(error);
+      Notiflix.Notify.warning(error.response.data.message);
+      console.log(error);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -53,8 +54,8 @@ export const loginUser = createAsyncThunk(
       const response = await login(user);
       return response;
     } catch (error) {
-      Notiflix.Notify.warning('Oooops, something goes wrong');
-      thunkAPI.rejectWithValue(error);
+      Notiflix.Notify.warning(error.response.data.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -65,8 +66,8 @@ export const logoutUser = createAsyncThunk(
       const response = await logout(user);
       return response;
     } catch (error) {
-      Notiflix.Notify.warning('Oooops, something goes wrong');
-      thunkAPI.rejectWithValue(error);
+      Notiflix.Notify.warning(error.response.data.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -85,8 +86,8 @@ export const refreshUser = createAsyncThunk(
       const response = await refresh();
       return response;
     } catch (error) {
-      Notiflix.Notify.warning('Oooops, something goes wrong');
-      thunkAPI.rejectWithValue(error);
+      Notiflix.Notify.warning(error.response.data.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
