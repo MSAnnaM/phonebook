@@ -10,19 +10,23 @@ import Home from 'pages/Home/Home';
 import RegistrationUser from 'pages/Registration/Registration';
 import Login from 'pages/Login/Login';
 import { ContactsPersonal } from 'pages/Contact/Contact';
-import { userRefreshingSelect } from '../redux/user/selectors';
+import { userIsLoading, userRefreshingSelect } from '../redux/user/selectors';
 import { Background } from './App.styled';
+import Loader from './Loader/Loader';
 
 export const App = () => {
   const isRefresh = useSelector(userRefreshingSelect);
   const dispatch = useDispatch();
+  const isLoading = useSelector(userIsLoading);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+ 
   return (
     !isRefresh && (
       <Background>
+        {isLoading && <Loader />}
         <Routes>
           <Route path="/" element={<LayoutComponent />}>
             <Route

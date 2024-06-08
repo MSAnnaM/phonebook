@@ -2,28 +2,31 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const bounce = keyframes`
-  0%, 100% {
-    transform: scale(0.0);
-  } 
-  50% {
-    transform: scale(1.0);
+  0%, 20%, 50%, 80%, 100% {
+    margin-top: 0;
+  }
+  40% {
+    margin-top: -60px;
+  }
+  60% {
+    margin-top: -30px;
   }
 `;
 
 const StyledLoader = styled.div`
-  width: 18px;
-  height: 18px;
+ width: 180px;
+  height: 180px;
   background-color: #ff7f50;
-
-  border-radius: 100%;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 50%;
+  bottom: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  animation: ${bounce} 2.0s infinite ease-in-out;
+  transform: translateX(-50%);
+  animation: ${bounce} 2s infinite;
+  box-sizing: border-box;
 `;
 
 const Loader = () => (
